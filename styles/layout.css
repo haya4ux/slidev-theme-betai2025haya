@@ -1,0 +1,214 @@
+/* ==============================================
+   CSS変数定義
+   ============================================== */
+
+:root {
+  /* テーマカラー */
+  --slidev-theme-primary: #5d8392;
+  
+  /* フォント設定 */
+  --slidev-theme-font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic Medium', Meiryo, sans-serif;
+  --slidev-theme-font-mono: 'Fira Code', 'Consolas', 'SFMono-Regular', monospace;
+  --slidev-theme-footer-brand-font: 'Lora', serif;
+  
+  /* カラーパレット */
+  --slidev-theme-text-primary: #1f2937;
+  --slidev-theme-text-secondary: #4b5563;
+  --slidev-theme-text-muted: #6b7280;
+  
+  /* 日本語タイポグラフィ設定 */
+  --slidev-theme-line-height-body: 1.8;
+  --slidev-theme-line-height-heading: 1.4;
+  --slidev-theme-letter-spacing-body: 0.04em;
+  --slidev-theme-letter-spacing-heading: 0.02em;
+}
+
+/* ==============================================
+   全体フォント適用
+   ============================================== */
+
+* {
+  font-family: var(--slidev-theme-font-family);
+  /* 日本語フォントの混植最適化 */
+  font-feature-settings: "palt" 1, "kern" 1;
+  text-rendering: optimizeLegibility;
+}
+
+html, body, #app,
+.slidev-layout,
+.slidev-page,
+.slide-content {
+  font-family: var(--slidev-theme-font-family);
+  color: var(--slidev-theme-text-primary);
+  /* 日本語に最適化された行間 */
+  line-height: var(--slidev-theme-line-height-body);
+  letter-spacing: var(--slidev-theme-letter-spacing-body);
+}
+
+/* ==============================================
+   タイポグラフィ
+   ============================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--slidev-theme-font-family);
+  color: var(--slidev-theme-text-primary);
+  /* 見出し用の行間設定 */
+  line-height: var(--slidev-theme-line-height-heading);
+  letter-spacing: var(--slidev-theme-letter-spacing-heading);
+}
+
+h1 {
+  @apply font-bold;
+  font-size: 1.5em;
+  margin-bottom: 0.3em;
+}
+
+h2 {
+  @apply font-semibold;
+  font-size: 1.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
+}
+
+h3 {
+  @apply font-semibold;
+  font-size: 1.2em;
+  margin-bottom: 0.3em;
+}
+
+h4 {
+  @apply font-bold;
+  font-size: 1.0em;
+}
+
+h5, h6 {
+  @apply font-semibold;
+  font-size: 1.0em;
+}
+
+p, div, span, li, td, th, ul, ol, table {
+  font-family: var(--slidev-theme-font-family);
+  color: var(--slidev-theme-text-secondary);
+  line-height: var(--slidev-theme-line-height-body);
+  letter-spacing: var(--slidev-theme-letter-spacing-body);
+}
+
+pre, code {
+  font-family: var(--slidev-theme-font-mono);
+  /* コードブロックは等幅フォントの特性を活かす */
+  font-feature-settings: "tnum" 1;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+/* 数字の表示最適化（表形式データ等） */
+.tabular-nums {
+  font-feature-settings: "tnum" 1;
+}
+
+/* ルビ対応 */
+ruby {
+  ruby-align: center;
+}
+
+rt {
+  font-size: 0.6em;
+  line-height: 1;
+}
+
+/* 表のスタイル */
+table {
+  border-collapse: collapse;
+  margin-bottom: 10px;
+  width: 100%;
+  }
+  
+  td, th {
+  padding: 6px;
+  text-align: left;
+  }
+  
+  th {
+  border-bottom: 1px solid #dbdbdb;
+  }
+  
+  tbody tr:nth-child(even) {
+  background-color: #efefef;
+  }
+
+/* ==============================================
+   レイアウト特化スタイル
+   ============================================== */
+
+.slidev-layout.cover,
+.slidev-layout.intro {
+  @apply h-full grid;
+}
+
+.slidev-layout.cover h1 {
+  @apply text-6xl leading-20;
+  /* カバーページのタイトルは独自の行間設定 */
+  line-height: 1.2;
+}
+
+.slidev-layout.cover h1 + p {
+  @apply -mt-2 opacity-50 mb-4;
+}
+
+.slidev-layout.cover p + h2,
+.slidev-layout.cover ul + h2,
+.slidev-layout.cover table + h2 {
+  @apply mt-10;
+}
+
+/* ==============================================
+   タイトル装飾線
+   ============================================== */
+
+.title-dotted-line::after {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  left: 0;
+  width: 104%;
+  height: 6px;
+  background-image: repeating-linear-gradient(
+    to right,
+    #64748b 0px,
+    #64748b 12px,
+    transparent 12px,
+    transparent 20px
+  );
+}
+
+.title-dotted-line-center::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-image: repeating-linear-gradient(
+    to right,
+    #64748b 0px,
+    #64748b 12px,
+    transparent 12px,
+    transparent 20px
+  );
+}
+
+.title-dotted-line-small::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 108%;
+  height: 3px;
+  background-image: repeating-linear-gradient(
+    to right,
+    #64748b 0px,
+    #64748b 8px,
+    transparent 8px,
+    transparent 14px
+  );
+}

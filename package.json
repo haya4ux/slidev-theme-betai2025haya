@@ -1,0 +1,41 @@
+{
+  "name": "slidev-theme-betai2025haya",
+  "version": "1.0.0",
+  "type": "module",
+  "keywords": [
+    "slidev-theme",
+    "slidev"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "build": "slidev build docs/slide.md",
+    "dev": "slidev docs/slide.md --open",
+    "export": "slidev export docs/slide.md",
+    "screenshot": "slidev export docs/slide.md --format png"
+  },
+  "dependencies": {
+    "@slidev/theme-default": "^0.25.0",
+    "@slidev/types": "^52.0.0",
+    "playwright-chromium": "^1.54.1"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^52.0.0"
+  },
+  "//": "Learn more: https://sli.dev/guide/write-theme.html",
+  "slidev": {
+    "colorSchema": "both",
+    "defaults": {
+      "fonts": {
+        "sans": "Nunito Sans",
+        "mono": "Fira Code"
+      },
+      "logo": "/logo.svg",
+      "copyright": "© 2025 haya",
+      "class": "text-gray-800",
+      "transition": "slide",
+      "aspectRatio": "16/9"
+    }
+  }
+}
